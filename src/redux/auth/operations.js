@@ -52,3 +52,33 @@ export const authLogOutThunk = createAsyncThunk('auth/logOut',
     }
   },
 );
+
+// GET /users/current
+// Get information about the current user
+export const authRefreshUserThunk = createAsyncThunk('auth/refreshUser',
+  async (_, {
+    getState,
+    rejectWithValue,
+  }) => {
+    try {
+      const persistedToken = getState().auth.token;
+
+      setAuthHeader(persistedToken);
+
+      const response = await axios.get('/users/current');
+
+      console.log(response);
+
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+  {
+    condition(_, api) {
+      const persistedToken = api.getState().auth.token;
+
+      return persistedToken !== null;
+    },
+  },
+);

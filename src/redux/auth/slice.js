@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  authLogInThunk, authLogOutThunk, authRegisterThunk,
+  authLogInThunk, authLogOutThunk, authRefreshUserThunk, authRegisterThunk,
 } from './operations.js';
 
 const initialState = {
@@ -21,10 +21,25 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(authLogOutThunk.fulfilled, () => ({ ...initialState }))
-    .addMatcher(isAnyOf(
-      authRegisterThunk.pending,
+    .addCase(authRefreshUserThunk.pending, (state) => ({
+      ...state,
+      user: {
+        email: null,
+        name: null,
+      },
+      isLoggedIn: false,
+      isRefreshing: true,
+      error: null,
+    }))
+    .addCase(authRefreshUserThunk.fulfilled, (state, action) => ({
+      ...state,
+      user: action.payload,
+      isLoggedIn: true,
+      isRefreshing: false,
+    }))
+    .addMatcher(isAnyOf(authRegisterThunk.pending,
       authLogInThunk.pending,
-      authLogOutThunk.rejected,
+      authLogOutThunk.pending,
     ), (state) => ({
       ...state,
       user: {
@@ -36,10 +51,10 @@ const slice = createSlice({
       isRefreshing: true,
       error: null,
     }))
-    .addMatcher(isAnyOf(
-      authRegisterThunk.rejected,
+    .addMatcher(isAnyOf(authRegisterThunk.rejected,
       authLogInThunk.rejected,
       authLogOutThunk.rejected,
+      authRefreshUserThunk.rejected,
     ), (state, action) => ({
       ...state,
       isRefreshing: false,
