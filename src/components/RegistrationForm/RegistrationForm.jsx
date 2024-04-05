@@ -1,8 +1,8 @@
 import { FormikProvider } from 'formik';
-import { Button, Link, Stack, Typography } from '@mui/material';
+import { Button, Link, Stack } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { FormTextField } from '../index.js';
 import { useRegistrationForm } from '../../hooks';
-import { Link as RouterLink } from 'react-router-dom';
 
 function RegistrationForm() {
   const formik = useRegistrationForm();

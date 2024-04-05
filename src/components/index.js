@@ -5,3 +5,4 @@ export { default as BarLogo } from './BarLogo';
 export { default as Navigation } from './Navigation';
 export { default as RegistrationForm } from './RegistrationForm';
 export { default as FormTextField } from './FormTextField';
+export { default as LogInForm } from './LogInForm';
