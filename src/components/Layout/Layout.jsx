@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, CssBaseline } from '@mui/material';
+import React, { Suspense } from 'react';
+import { Container, CssBaseline, Typography } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import AppBar from '../AppBar/index.js';
 
@@ -12,7 +12,10 @@ function Layout() {
     </header>
     <main>
       <Container maxWidth={'md'}>
-        <Outlet />
+        <Suspense
+          fallback={<Typography variant={'body2'}>Loading...</Typography>}>
+          <Outlet />
+        </Suspense>
       </Container>
     </main>
     <CssBaseline />
