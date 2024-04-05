@@ -15,7 +15,9 @@ function App() {
       <Route path={'register'} element={<ProtectedRoute redirectTo={'/contacts'}
                                                         component={
                                                           <RegistrationPage />} />} />
-      <Route path={'login'} element={<LogInPage />} />
+      <Route path={'login'} element={<ProtectedRoute redirectTo={'/contacts'}
+                                                     component={
+                                                       <LogInPage />} />} />
       <Route path="*" element={<Navigate to={'/'} />} />
     </Route>
   </Routes>;

@@ -24,6 +24,7 @@ function RegistrationForm() {
         <FormTextField formik={formik}
                        name={'password'}
                        label={'Password *'}
+                       type={'password'}
         />
         <Button variant={'contained'}
                 type={'submit'}>

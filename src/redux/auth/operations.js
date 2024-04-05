@@ -16,3 +16,17 @@ export const authRegisterThunk = createAsyncThunk('auth/register',
     }
   },
 );
+
+// POST /users/login
+// Login user
+export const authLogInThunk = createAsyncThunk('auth/logIn',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const response = await axios.post('/users/login', credentials);
+
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
