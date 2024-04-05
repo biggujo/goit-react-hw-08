@@ -1,5 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { authLogInThunk, authRegisterThunk } from './operations.js';
+import {
+  authLogInThunk, authLogOutThunk, authRegisterThunk,
+} from './operations.js';
 
 const initialState = {
   user: {
@@ -17,25 +19,30 @@ const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addMatcher(isAnyOf(authRegisterThunk.pending, authLogInThunk.pending),
-      (state) => ({
-        ...state,
-        user: {
-          email: null,
-          name: null,
-        },
-        isLoggedIn: false,
-        isRefreshing: true,
-        error: null,
-      }),
-    )
-    .addMatcher(isAnyOf(authRegisterThunk.rejected, authLogInThunk.rejected),
-      (state, action) => ({
-        ...state,
-        isRefreshing: false,
-        error: action.payload,
-      }),
-    )
+    .addCase(authLogOutThunk.fulfilled, () => ({ ...initialState }))
+    .addMatcher(isAnyOf(
+      authRegisterThunk.pending,
+      authLogInThunk.pending,
+      authLogOutThunk.rejected,
+    ), (state) => ({
+      ...state,
+      user: {
+        email: null,
+        name: null,
+      },
+      isLoggedIn: false,
+      isRefreshing: true,
+      error: null,
+    }))
+    .addMatcher(isAnyOf(
+      authRegisterThunk.rejected,
+      authLogInThunk.rejected,
+      authLogOutThunk.rejected,
+    ), (state, action) => ({
+      ...state,
+      isRefreshing: false,
+      error: action.payload,
+    }))
     .addMatcher(
       isAnyOf(authRegisterThunk.fulfilled, authLogInThunk.fulfilled),
       (state, action) => ({

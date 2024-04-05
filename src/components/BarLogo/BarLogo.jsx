@@ -1,20 +1,26 @@
 import React from 'react';
-import { Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import ContactsIcon from '@mui/icons-material/Contacts';
+import { Link as RouterLink } from 'react-router-dom';
 
 function BarLogo() {
-  return <Stack direction={'row'}
-                gap={1.5}
-                alignItems={'center'}
+  return <Button sx={{ color: 'white' }}
+                 component={RouterLink}
+                 to={'/'}
   >
-    <ContactsIcon />
-    <Typography variant={'h6'} sx={{
-      textTransform: 'uppercase',
-      fontWeight: '700',
-    }}>
-      Reach out
-    </Typography>
-  </Stack>;
+    <Stack direction={'row'}
+           gap={1.5}
+           alignItems={'center'}
+    >
+      <ContactsIcon />
+      <Typography variant={'h6'} sx={{
+        textTransform: 'uppercase',
+        fontWeight: '700',
+      }}>
+        Reach out
+      </Typography>
+    </Stack>
+  </Button>;
 }
 
 export default BarLogo;

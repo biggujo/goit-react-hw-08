@@ -20,7 +20,9 @@ function Layout() {
       </Container>
     </main>
     <CssBaseline />
-    <Toaster position={'top-right'} />
+    <Toaster position={'top-right'} toastOptions={{
+      duration: 2500,
+    }} />
   </>);
 }
 

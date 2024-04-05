@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { BarLogo, Navigation } from '../index.js';
 import { links } from '../../utils/index.js';
+import AuthNavigation from '../AuthNavigation/AuthNavigation.jsx';
 
 const BarStack = ({
   children,
@@ -24,7 +25,7 @@ function AppBar() {
             <BarLogo />
             <Navigation links={links.navigationLinks} />
           </BarStack>
-          <Navigation links={links.authLinks} />
+          <AuthNavigation />
         </BarStack>
       </Container>
     </Toolbar>
