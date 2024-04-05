@@ -11,8 +11,8 @@ const navigationLinks = [
 
 const authLinks = [
   {
-    title: 'Sign Up',
-    href: '/signup',
+    title: 'Register',
+    href: '/register',
   },
   {
     title: 'Log In',

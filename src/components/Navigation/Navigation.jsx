@@ -18,7 +18,9 @@ function Navigation({ links }) {
         sx={{
           color: 'white',
         }}
-        to={href}>
+        to={href}
+        key={href}
+      >
         {title}
       </Button>)}
     </Stack>

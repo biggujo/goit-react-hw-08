@@ -16,21 +16,19 @@ const BarStack = ({
 </Stack>;
 
 function AppBar() {
-  return (<header>
-    <AppBarMui>
-      <Toolbar>
-        <Container maxWidth={'md'} disableGutters>
-          <BarStack justifyContent={'space-between'}>
-            <BarStack>
-              <BarLogo />
-              <Navigation links={links.navigationLinks} />
-            </BarStack>
-            <Navigation links={links.authLinks} />
+  return (<AppBarMui position={'static'}>
+    <Toolbar>
+      <Container maxWidth={'md'}>
+        <BarStack justifyContent={'space-between'}>
+          <BarStack>
+            <BarLogo />
+            <Navigation links={links.navigationLinks} />
           </BarStack>
-        </Container>
-      </Toolbar>
-    </AppBarMui>
-  </header>);
+          <Navigation links={links.authLinks} />
+        </BarStack>
+      </Container>
+    </Toolbar>
+  </AppBarMui>);
 }
 
 export default AppBar;
