@@ -1,6 +1,6 @@
 import React from 'react';
-import { RegistrationForm } from '../components';
 import { Stack, Typography } from '@mui/material';
+import { RegistrationForm } from '../../components/';
 
 function RegistrationPage() {
   return (<Stack gap={2}>

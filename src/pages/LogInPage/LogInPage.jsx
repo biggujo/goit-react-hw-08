@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import { LogInForm } from '../components';
+import { LogInForm } from '../../components';
 
 function LogInPage() {
   return (<Stack gap={2}>
