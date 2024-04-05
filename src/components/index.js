@@ -7,3 +7,4 @@ export { default as RegistrationForm } from './RegistrationForm';
 export { default as FormTextField } from './FormTextField';
 export { default as LogInForm } from './LogInForm';
 export { default as ProtectedRoute } from './ProtectedRoute';
+export { default as UserMenu } from './UserMenu';

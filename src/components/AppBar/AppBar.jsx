@@ -2,9 +2,11 @@ import React from 'react';
 import {
   Container, AppBar as AppBarMui, Toolbar, Stack,
 } from '@mui/material';
-import { BarLogo, Navigation } from '../index.js';
+import { BarLogo, Navigation, UserMenu } from '../index.js';
 import { links } from '../../utils/index.js';
 import AuthNavigation from '../AuthNavigation/AuthNavigation.jsx';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 
 const BarStack = ({
   children,
@@ -17,6 +19,8 @@ const BarStack = ({
 </Stack>;
 
 function AppBar() {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (<AppBarMui position={'static'}>
     <Toolbar>
       <Container maxWidth={'md'}>
@@ -25,7 +29,7 @@ function AppBar() {
             <BarLogo />
             <Navigation links={links.navigationLinks} />
           </BarStack>
-          <AuthNavigation />
+          {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
         </BarStack>
       </Container>
     </Toolbar>
