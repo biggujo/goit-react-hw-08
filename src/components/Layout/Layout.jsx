@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Container, CssBaseline, Typography } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import AppBar from '../AppBar/index.js';
+import { Toaster } from 'react-hot-toast';
 
 function Layout() {
   return (<>
@@ -19,6 +20,7 @@ function Layout() {
       </Container>
     </main>
     <CssBaseline />
+    <Toaster position={'top-right'} />
   </>);
 }
 

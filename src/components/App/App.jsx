@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout } from '../index.js';
+import { Layout, ProtectedRoute } from '../index.js';
 import { lazy } from 'react';
 
 const HomePage = lazy(() => import('../../pages/HomePage'));
@@ -12,7 +12,9 @@ function App() {
     <Route path={'/'} element={<Layout />}>
       <Route index element={<HomePage />} />
       <Route path={'contacts'} element={<ContactsPage />} />
-      <Route path={'register'} element={<RegistrationPage />} />
+      <Route path={'register'} element={<ProtectedRoute redirectTo={'/contacts'}
+                                                        component={
+                                                          <RegistrationPage />} />} />
       <Route path={'login'} element={<LogInPage />} />
       <Route path="*" element={<Navigate to={'/'} />} />
     </Route>
