@@ -8,6 +8,7 @@ const initialState = {
     email: null,
     name: null,
   },
+  token: null,
   isLoggedIn: false,
   isRefreshing: false,
   error: null,
@@ -30,6 +31,7 @@ const slice = createSlice({
         email: null,
         name: null,
       },
+      token: null,
       isLoggedIn: false,
       isRefreshing: true,
       error: null,
@@ -48,6 +50,7 @@ const slice = createSlice({
       (state, action) => ({
         ...state,
         user: action.payload.user,
+        token: action.payload.token,
         isLoggedIn: true,
         isRefreshing: false,
       }),
