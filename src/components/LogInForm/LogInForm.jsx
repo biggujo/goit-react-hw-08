@@ -4,6 +4,7 @@ import { Button, Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { FormTextField } from '../index.js';
 import useLogInForm from '../../hooks/useLogInForm.js';
+import { LoadingButton } from '@mui/lab';
 
 function LogInForm() {
   const formik = useLogInForm();
@@ -22,10 +23,12 @@ function LogInForm() {
                      label={'Password *'}
                      type={'password'}
       />
-      <Button variant={'contained'}
-              type={'submit'}>
-        Log in
-      </Button>
+      <LoadingButton
+        loading={formik.isSubmitting}
+        variant={'contained'}
+        type={'submit'}>
+        Register
+      </LoadingButton>
       <Link
         variant={'body2'}
         component={RouterLink}

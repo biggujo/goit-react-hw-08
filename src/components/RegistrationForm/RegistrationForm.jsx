@@ -3,6 +3,7 @@ import { Button, Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { FormTextField } from '../index.js';
 import { useRegistrationForm } from '../../hooks';
+import { LoadingButton } from '@mui/lab';
 
 function RegistrationForm() {
   const formik = useRegistrationForm();
@@ -26,10 +27,12 @@ function RegistrationForm() {
                        label={'Password *'}
                        type={'password'}
         />
-        <Button variant={'contained'}
-                type={'submit'}>
+        <LoadingButton
+          loading={formik.isSubmitting}
+          variant={'contained'}
+          type={'submit'}>
           Register
-        </Button>
+        </LoadingButton>
         <Link
           variant={'body2'}
           component={RouterLink}
