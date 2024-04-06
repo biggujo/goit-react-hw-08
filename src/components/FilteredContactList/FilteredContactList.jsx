@@ -7,21 +7,13 @@ import {
 import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
 import { Typography } from '@mui/material';
 import { selectFilterValue } from '../../redux/filter/selectors.js';
+import { useFilteredContacts } from '../../hooks/index.js';
 
 function FilteredContactList() {
   const dispatch = useDispatch();
-  const items = useSelector(selectContactsItems);
+  const filteredItems = useFilteredContacts();
   const isLoading = useSelector(selectContactsIsLoading);
   const error = useSelector(selectContactsError);
-  const filter = useSelector(selectFilterValue);
-
-  const filteredItems = useMemo(() => items.filter(({ name }) => name.includes(
-    filter)), [
-    items,
-    filter,
-  ]);
-
-  console.log(filteredItems);
 
   useEffect(() => {
     dispatch(contactsFetchAllThunk());
