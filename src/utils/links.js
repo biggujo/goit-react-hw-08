@@ -4,7 +4,7 @@ const navigationLinks = [
     href: '/',
   },
   {
-    title: 'Contacts',
+    title: 'My Contacts',
     href: '/contacts',
   },
 ];

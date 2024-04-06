@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContactData, ContactForm, ContactModal } from '../index.js';
+import { ContactData, ContactEditForm, ContactModal } from '../index.js';
 import { Button, Stack, Typography } from '@mui/material';
 
 function ContactEditModal({
@@ -30,11 +30,11 @@ function ContactEditModal({
       <Typography variant={'h6'} component={'h3'}>
         New data:
       </Typography>
-      <ContactForm id={id} initialName={name} initialPhone={phone}
-                   additionalControls={<Button onClick={handleCancelClick}
-                                               variant={'outlined'}>
-                     Cancel
-                   </Button>} />
+      <ContactEditForm id={id} initialName={name} initialPhone={phone}
+                       additionalControls={<Button onClick={handleCancelClick}
+                                                   variant={'outlined'}>
+                         Cancel
+                       </Button>} />
     </Stack>
   </ContactModal>);
 }

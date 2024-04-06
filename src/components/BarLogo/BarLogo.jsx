@@ -17,7 +17,7 @@ function BarLogo() {
         textTransform: 'uppercase',
         fontWeight: '700',
       }}>
-        Reach out
+        Phonebook
       </Typography>
     </Stack>
   </Button>;

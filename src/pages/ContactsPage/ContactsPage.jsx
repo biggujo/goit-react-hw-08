@@ -1,9 +1,25 @@
 import React from 'react';
-import { Box } from '@mui/material';
-import { ContactList } from '../../components';
+import { Box, Stack, Typography } from '@mui/material';
+import {
+  ContactList, ContactEditForm, ContactCreateForm,
+} from '../../components';
 
 function ContactsPage() {
-  return (<Box>
+  return (<Stack gap={2}>
+    <Typography variant={'h2'}>
+      Contacts
+    </Typography>
+    <Typography variant={'h3'} sx={{
+      paddingTop: '1rem',
+    }}>
+      Add a contact
+    </Typography>
+    <ContactCreateForm />
+    <Typography variant={'h3'} sx={{
+      paddingTop: '1rem',
+    }}>
+      List of contacts
+    </Typography>
     <ContactList items={[
       {
         id: 1,
@@ -21,7 +37,7 @@ function ContactsPage() {
         phone: '+12345',
       },
     ]} />
-  </Box>);
+  </Stack>);
 }
 
 export default ContactsPage;

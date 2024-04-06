@@ -6,7 +6,7 @@ const validationSchema = Yup.object().shape({
   phone: Yup.string().min(2).required(),
 });
 
-function useContactForm({
+function useContactEditForm({
   id,
   initialName,
   initialPhone,
@@ -25,4 +25,4 @@ function useContactForm({
   });
 }
 
-export default useContactForm;
+export default useContactEditForm;

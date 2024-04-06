@@ -1,17 +1,17 @@
 import React from 'react';
-import useContactForm from '../../hooks/useContactForm.js';
+import useContactEditForm from '../../hooks/useContactEditForm.js';
 import { FormikProvider } from 'formik';
 import { Stack } from '@mui/material';
 import { FormTextField } from '../index.js';
 import { LoadingButton } from '@mui/lab';
 
-function ContactForm({
+function ContactEditForm({
   id,
   initialName,
   initialPhone,
   additionalControls,
 }) {
-  const formik = useContactForm({
+  const formik = useContactEditForm({
     id,
     initialName,
     initialPhone,
@@ -43,4 +43,4 @@ function ContactForm({
   </FormikProvider>;
 }
 
-export default ContactForm;
+export default ContactEditForm;
