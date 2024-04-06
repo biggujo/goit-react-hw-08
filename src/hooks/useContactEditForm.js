@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
-  phone: Yup.string().min(2).required(),
+  number: Yup.string().min(2).required(),
 });
 
 function useContactEditForm({
@@ -13,7 +13,7 @@ function useContactEditForm({
 }) {
   const initialValues = {
     name: initialName,
-    phone: initialPhone,
+    number: initialPhone,
   };
 
   return useFormik({

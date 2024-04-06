@@ -8,13 +8,13 @@ import { LoadingButton } from '@mui/lab';
 function ContactEditForm({
   id,
   initialName,
-  initialPhone,
+  initialNumber,
   additionalControls,
 }) {
   const formik = useContactEditForm({
     id,
     initialName,
-    initialPhone,
+    initialNumber,
   });
 
   return <FormikProvider value={formik}>
@@ -27,7 +27,7 @@ function ContactEditForm({
                      label={'Name *'}
       />
       <FormTextField formik={formik}
-                     name={'phone'}
+                     name={'number'}
                      label={'Phone *'}
       />
       <Stack direction={'row'} gap={2}>

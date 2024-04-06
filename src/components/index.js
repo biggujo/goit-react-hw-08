@@ -15,5 +15,5 @@ export { default as ContactModal } from './ContactModal';
 export { default as ContactDeleteModal } from './ContactDeleteModal';
 export { default as ContactEditModal } from './ContactEditModal';
 export { default as ContactData } from './ContactData';
-export { default as ContactCreateForm } from './ContactCreateForm';
+export { default as ContactAddForm } from './ContactAddForm';
 export { default as ContactEditForm } from './ContactEditForm';

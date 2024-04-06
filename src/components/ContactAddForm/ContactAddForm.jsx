@@ -1,12 +1,12 @@
 import React from 'react';
-import useContactCreateForm from '../../hooks/useContactCreateForm.js';
+import useContactAddForm from '../../hooks/useContactAddForm.js';
 import { FormikProvider } from 'formik';
 import { Stack } from '@mui/material';
 import { FormTextField } from '../index.js';
 import { LoadingButton } from '@mui/lab';
 
-function ContactCreateForm() {
-  const formik = useContactCreateForm();
+function ContactAddForm() {
+  const formik = useContactAddForm();
 
   return <FormikProvider value={formik}>
     <Stack as={'form'}
@@ -18,7 +18,7 @@ function ContactCreateForm() {
                      label={'Name *'}
       />
       <FormTextField formik={formik}
-                     name={'phone'}
+                     name={'number'}
                      label={'Phone *'}
       />
       <LoadingButton
@@ -31,4 +31,4 @@ function ContactCreateForm() {
   </FormikProvider>;
 }
 
-export default ContactCreateForm;
+export default ContactAddForm;

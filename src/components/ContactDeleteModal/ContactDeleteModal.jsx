@@ -7,7 +7,7 @@ function ContactDeleteModal({
   onClose,
   id,
   name,
-  phone,
+  number,
 }) {
   const handleSubmitClick = () => {
     onClose();
@@ -26,7 +26,7 @@ function ContactDeleteModal({
       <Typography variant={'h6'} component={'h3'}>
         A contact to delete:
       </Typography>
-      <ContactData name={name} phone={phone} />
+      <ContactData name={name} number={number} />
       <Stack direction={'row'} gap={2}>
         <Button onClick={handleSubmitClick}
                 variant={'contained'}

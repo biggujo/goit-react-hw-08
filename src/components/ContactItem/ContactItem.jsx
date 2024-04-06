@@ -10,7 +10,7 @@ import {
 function ContactItem({
   id,
   name,
-  phone,
+  number,
 }) {
   const [isDeleteModalOpen, toggleDeleteModalOpen] = useToggle();
   const [isEditModalOpen, toggleEditModalOpen] = useToggle();
@@ -18,7 +18,7 @@ function ContactItem({
   return (<Card>
     <Stack direction={'row'} justifyContent={'space-between'}>
       <CardContent>
-        <ContactData name={name} phone={phone} />
+        <ContactData name={name} number={number} />
       </CardContent>
       <CardActions>
         <Button onClick={toggleEditModalOpen}
@@ -32,12 +32,12 @@ function ContactItem({
                       onClose={toggleEditModalOpen}
                       id={id}
                       name={name}
-                      phone={phone} />
+                      number={number} />
     <ContactDeleteModal open={isDeleteModalOpen}
                         onClose={toggleDeleteModalOpen}
                         id={id}
                         name={name}
-                        phone={phone} />
+                        number={number} />
   </Card>);
 }
 

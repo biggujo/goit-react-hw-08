@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import {
-  ContactList, ContactEditForm, ContactCreateForm,
+  ContactList, ContactAddForm,
 } from '../../components';
 
 function ContactsPage() {
@@ -9,12 +9,14 @@ function ContactsPage() {
     <Typography variant={'h2'}>
       Contacts
     </Typography>
+
     <Typography variant={'h3'} sx={{
       paddingTop: '1rem',
     }}>
       Add a contact
     </Typography>
-    <ContactCreateForm />
+    <ContactAddForm />
+
     <Typography variant={'h3'} sx={{
       paddingTop: '1rem',
     }}>

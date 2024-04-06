@@ -7,7 +7,7 @@ function ContactEditModal({
   onClose,
   id,
   name,
-  phone,
+  number,
 }) {
   const handleSubmitClick = () => {
     onClose();
@@ -26,11 +26,11 @@ function ContactEditModal({
       <Typography variant={'h6'} component={'h3'}>
         Original data:
       </Typography>
-      <ContactData name={name} phone={phone} />
+      <ContactData name={name} number={number} />
       <Typography variant={'h6'} component={'h3'}>
         New data:
       </Typography>
-      <ContactEditForm id={id} initialName={name} initialPhone={phone}
+      <ContactEditForm id={id} initialName={name} initialNumber={number}
                        additionalControls={<Button onClick={handleCancelClick}
                                                    variant={'outlined'}>
                          Cancel
