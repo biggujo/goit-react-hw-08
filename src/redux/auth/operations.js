@@ -67,8 +67,6 @@ export const authRefreshUserThunk = createAsyncThunk('auth/refreshUser',
 
       const response = await axios.get('/users/current');
 
-      console.log(response);
-
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
