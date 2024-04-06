@@ -9,3 +9,7 @@ export { default as LogInForm } from './LogInForm';
 export { default as RestrictedRoute } from './RestrictedRoute';
 export { default as PrivateRoute } from './PrivateRoute';
 export { default as UserMenu } from './UserMenu';
+export { default as ContactList } from './ContactList';
+export { default as ContactItem } from './ContactItem';
+export { default as ContactModal } from './ContactModal';
+export { default as ContactDeleteModal } from './ContactDeleteModal';

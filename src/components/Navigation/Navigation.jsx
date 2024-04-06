@@ -7,6 +7,8 @@ function Navigation({ links }) {
     <Stack
       direction={'row'}
       gap={2}
+      as={'ul'}
+      paddingLeft={0}
       style={{
         listStyleType: 'none',
       }}>
