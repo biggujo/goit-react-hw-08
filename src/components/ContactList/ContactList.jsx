@@ -1,8 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ContactItem from '../ContactItem/index.js';
-import { Stack } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
+import {
+  selectContactsIsLoading, selectContactsItems,
+} from '../../redux/contacts/selectors.js';
 
-function ContactList({ items }) {
+function ContactList() {
+  const dispatch = useDispatch();
+  const items = useSelector(selectContactsItems);
+  const isLoading = useSelector(selectContactsIsLoading);
+
+  useEffect(() => {
+    dispatch(contactsFetchAllThunk());
+  }, []);
+
+  if (isLoading) {
+    return <Typography>Loading...</Typography>;
+  }
+
+  if (!isLoading && items.length === 0) {
+    return <Typography>No items available.</Typography>;
+  }
+
   return <Stack gap={2}
                 as={'ul'}
                 paddingLeft={0}
