@@ -30,7 +30,10 @@ function ContactEditModal({
       <Typography variant={'h6'} component={'h3'}>
         New data:
       </Typography>
-      <ContactEditForm id={id} initialName={name} initialNumber={number}
+      <ContactEditForm id={id}
+                       onClose={onClose}
+                       initialName={name}
+                       initialNumber={number}
                        additionalControls={<Button onClick={handleCancelClick}
                                                    variant={'outlined'}>
                          Cancel

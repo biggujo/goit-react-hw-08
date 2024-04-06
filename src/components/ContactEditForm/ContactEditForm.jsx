@@ -7,12 +7,14 @@ import { LoadingButton } from '@mui/lab';
 
 function ContactEditForm({
   id,
+  onClose,
   initialName,
   initialNumber,
   additionalControls,
 }) {
   const formik = useContactEditForm({
     id,
+    onClose,
     initialName,
     initialNumber,
   });

@@ -3,6 +3,7 @@ import {
   contactsAddContactThunk,
   contactsDeleteContactByIdThunk,
   contactsFetchAllThunk,
+  contactsUpdateContactByIdThunk,
 } from './operations.js';
 
 const initialState = {
@@ -44,6 +45,17 @@ const slice = createSlice({
       return {
         ...state,
         items: state.items.filter(({ id }) => id !== action.payload.id),
+      };
+    })
+    .addCase(contactsUpdateContactByIdThunk.fulfilled, (state, action) => {
+      const updatedId = action.payload.id;
+      const updatedIndex = state.items.findIndex(({ id }) => id === updatedId);
+
+      return {
+        ...state,
+        items: state.items.map((item, index) => index === updatedIndex ? {
+          ...action.payload,
+        } : item),
       };
     })
     .addMatcher(isAnyOf(

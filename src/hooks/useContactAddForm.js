@@ -30,6 +30,7 @@ function useContactAddForm() {
         }
 
         toast.success('The contact has been added');
+        formikHelpers.resetForm();
       } catch (error) {
         toast.error(error.message);
       }

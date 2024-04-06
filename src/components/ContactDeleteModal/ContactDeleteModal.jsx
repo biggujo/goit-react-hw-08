@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 import { ContactData, ContactModal } from '../index.js';
 import { useDispatch } from 'react-redux';
@@ -6,6 +6,7 @@ import {
   contactsDeleteContactByIdThunk,
 } from '../../redux/contacts/operations.js';
 import toast from 'react-hot-toast';
+import { LoadingButton } from '@mui/lab';
 
 function ContactDeleteModal({
   open,
@@ -14,9 +15,11 @@ function ContactDeleteModal({
   name,
   number,
 }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmitClick = async () => {
+    setIsSubmitting(true);
     try {
       const result = await dispatch(contactsDeleteContactByIdThunk(id));
 
@@ -25,10 +28,11 @@ function ContactDeleteModal({
       }
 
       toast.success('Successful delete');
+      onClose();
     } catch (error) {
       toast.error(error.message);
     } finally {
-      onClose();
+      setIsSubmitting(false);
     }
   };
 
@@ -47,11 +51,12 @@ function ContactDeleteModal({
       </Typography>
       <ContactData name={name} number={number} />
       <Stack direction={'row'} gap={2}>
-        <Button onClick={handleSubmitClick}
-                variant={'contained'}
-                color={'error'}>
+        <LoadingButton onClick={handleSubmitClick}
+                       loading={isSubmitting}
+                       variant={'contained'}
+                       color={'error'}>
           Yes
-        </Button>
+        </LoadingButton>
         <Button onClick={handleCancelClick}
                 variant={'outlined'}>
           No
