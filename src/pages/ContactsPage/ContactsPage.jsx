@@ -1,8 +1,8 @@
 import React from 'react';
-import { Stack, Typography } from '@mui/material';
-import {
-  ContactList, ContactAddForm,
-} from '../../components';
+import { Box, Stack, Typography } from '@mui/material';
+import { ContactAddForm } from '../../components';
+import Filter from '../../components/Filter/index.js';
+import FilteredContactList from '../../components/FilteredContactList/index.js';
 
 function ContactsPage() {
   return (<Stack gap={2}>
@@ -22,7 +22,20 @@ function ContactsPage() {
     }}>
       List of contacts
     </Typography>
-    <ContactList />
+
+    <Box>
+      <Typography variant={'h4'}>
+        Filter
+      </Typography>
+      <Filter />
+    </Box>
+
+    <Box>
+      <Typography variant={'h4'}>
+        Items
+      </Typography>
+      <FilteredContactList />
+    </Box>
   </Stack>);
 }
 

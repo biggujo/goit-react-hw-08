@@ -17,3 +17,4 @@ export { default as ContactEditModal } from './ContactEditModal';
 export { default as ContactData } from './ContactData';
 export { default as ContactAddForm } from './ContactAddForm';
 export { default as ContactEditForm } from './ContactEditForm';
+export { default as Filter } from './Filter';
