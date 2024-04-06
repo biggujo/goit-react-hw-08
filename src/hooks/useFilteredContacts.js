@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { selectContactsItems } from '../redux/contacts/selectors.js';
 import Fuse from 'fuse.js';
+import { selectContactsItems } from '../redux/contacts/selectors.js';
 import { selectFilterValue } from '../redux/filter/selectors.js';
 
 const options = {

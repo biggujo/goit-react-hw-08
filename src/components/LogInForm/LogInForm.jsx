@@ -1,10 +1,9 @@
-import React from 'react';
-import { FormikProvider } from 'formik';
-import { Button, Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { FormikProvider } from 'formik';
+import { Link, Stack } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 import { FormTextField } from '../index.js';
 import useLogInForm from '../../hooks/useLogInForm.js';
-import { LoadingButton } from '@mui/lab';
 
 function LogInForm() {
   const formik = useLogInForm();
@@ -36,7 +35,7 @@ function LogInForm() {
         component={RouterLink}
         to={'/register'}
       >
-        Don't have an account? Register now
+        Don&#39;t have an account? Register now
       </Link>
     </Stack>
   </FormikProvider>);

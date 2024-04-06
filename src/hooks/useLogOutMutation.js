@@ -1,7 +1,6 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { authLogOutThunk } from '../redux/auth/operations.js';
 import toast from 'react-hot-toast';
+import { authLogOutThunk } from '../redux/auth/operations.js';
 
 function useLogOutMutation() {
   const dispatch = useDispatch();

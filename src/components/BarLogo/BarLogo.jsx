@@ -1,7 +1,6 @@
-import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Button, Stack, Typography } from '@mui/material';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import { Link as RouterLink } from 'react-router-dom';
 
 function BarLogo() {
   return <Button

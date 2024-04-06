@@ -1,12 +1,11 @@
-import React, { useEffect, useMemo } from 'react';
-import { ContactList } from '../index.js';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Typography } from '@mui/material';
+import { ContactList } from '../index.js';
 import {
-  selectContactsError, selectContactsIsLoading, selectContactsItems,
+  selectContactsError, selectContactsIsLoading,
 } from '../../redux/contacts/selectors.js';
 import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
-import { Typography } from '@mui/material';
-import { selectFilterValue } from '../../redux/filter/selectors.js';
 import { useFilteredContacts } from '../../hooks/index.js';
 
 function FilteredContactList() {
@@ -17,7 +16,7 @@ function FilteredContactList() {
 
   useEffect(() => {
     dispatch(contactsFetchAllThunk());
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return <Typography>Error: {error}</Typography>;

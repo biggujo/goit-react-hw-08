@@ -1,16 +1,14 @@
-import React from 'react';
-import useContactEditForm from '../../hooks/useContactEditForm.js';
 import { FormikProvider } from 'formik';
-import { Stack } from '@mui/material';
-import { FormTextField } from '../index.js';
+import { Button, Stack } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import useContactEditForm from '../../hooks/useContactEditForm.js';
+import { FormTextField } from '../index.js';
 
 function ContactEditForm({
   id,
   onClose,
   initialName,
   initialNumber,
-  additionalControls,
 }) {
   const formik = useContactEditForm({
     id,
@@ -41,7 +39,10 @@ function ContactEditForm({
           type={'submit'}>
           Submit
         </LoadingButton>
-        {additionalControls}
+        <Button onClick={onClose}
+                variant={'outlined'}>
+          Cancel
+        </Button>
       </Stack>
     </Stack>
   </FormikProvider>;

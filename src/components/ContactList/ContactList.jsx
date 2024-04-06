@@ -1,11 +1,5 @@
-import React, { useEffect } from 'react';
+import { Stack } from '@mui/material';
 import ContactItem from '../ContactItem/index.js';
-import { Stack, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
-import {
-  selectContactsError, selectContactsIsLoading, selectContactsItems,
-} from '../../redux/contacts/selectors.js';
 
 function ContactList({ items }) {
   return <Stack gap={2}

@@ -1,6 +1,5 @@
-import React from 'react';
-import { Button, Stack } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Button, Stack } from '@mui/material';
 
 function Navigation({
   links,

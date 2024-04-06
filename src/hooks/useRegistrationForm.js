@@ -1,8 +1,8 @@
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
 import { authRegisterThunk } from '../redux/auth/operations.js';
-import toast from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),

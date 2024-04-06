@@ -1,10 +1,9 @@
-import React from 'react';
 import {
-  Button, Card, CardActions, CardContent, Stack, Typography,
+  Button, Card, CardActions, CardContent, Stack,
 } from '@mui/material';
 import useToggle from '../../hooks/useToggle.js';
 import {
-  ContactData, ContactDeleteModal, ContactEditModal, ContactModal,
+  ContactData, ContactDeleteModal, ContactEditModal,
 } from '../index.js';
 
 function ContactItem({

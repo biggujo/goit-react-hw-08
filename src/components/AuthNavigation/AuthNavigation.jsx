@@ -1,4 +1,3 @@
-import React from 'react';
 import { links } from '../../utils';
 import { Navigation } from '../index.js';
 

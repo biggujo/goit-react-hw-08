@@ -1,9 +1,8 @@
-import React from 'react';
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { contactsAddContactThunk } from '../redux/contacts/operations.js';
 import toast from 'react-hot-toast';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { contactsAddContactThunk } from '../redux/contacts/operations.js';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).max(50).required(),

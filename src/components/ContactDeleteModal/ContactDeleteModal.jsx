@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Button, Stack, Typography } from '@mui/material';
-import { ContactData, ContactModal } from '../index.js';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  contactsAddContactThunk, contactsDeleteContactByIdThunk,
-} from '../../redux/contacts/operations.js';
 import toast from 'react-hot-toast';
+import { Button, Stack, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { ContactData, ContactModal } from '../index.js';
+import {
+  contactsDeleteContactByIdThunk,
+} from '../../redux/contacts/operations.js';
 
 function ContactDeleteModal({
   open,

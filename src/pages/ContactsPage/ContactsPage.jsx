@@ -1,9 +1,8 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import { Box, Stack, Typography } from '@mui/material';
 import { ContactAddForm } from '../../components';
 import Filter from '../../components/Filter/index.js';
 import FilteredContactList from '../../components/FilteredContactList/index.js';
-import { useSelector } from 'react-redux';
 import { selectContactsItems } from '../../redux/contacts/selectors.js';
 
 function ContactsPage() {

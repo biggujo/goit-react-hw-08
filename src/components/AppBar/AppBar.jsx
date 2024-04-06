@@ -1,11 +1,10 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   Container, AppBar as AppBarMui, Toolbar, Stack, Typography,
 } from '@mui/material';
 import { BarLogo, Navigation, UserMenu } from '../index.js';
-import { links } from '../../utils/index.js';
+import { links } from '../../utils';
 import AuthNavigation from '../AuthNavigation/AuthNavigation.jsx';
-import { useSelector } from 'react-redux';
 import {
   selectIsLoggedIn, selectIsRefreshing,
 } from '../../redux/auth/selectors.js';

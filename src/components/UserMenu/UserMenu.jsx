@@ -1,7 +1,6 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import { Button, Stack, Typography } from '@mui/material';
 import useLogOutMutation from '../../hooks/useLogOutMutation.js';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors.js';
 
 function UserMenu() {

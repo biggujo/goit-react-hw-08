@@ -1,7 +1,7 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, PrivateRoute, RestrictedRoute } from '../index.js';
 import { lazy, useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Layout, PrivateRoute, RestrictedRoute } from '../index.js';
 import { authRefreshUserThunk } from '../../redux/auth/operations.js';
 
 const HomePage = lazy(() => import('../../pages/HomePage'));
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authRefreshUserThunk());
-  }, []);
+  }, [dispatch]);
 
   return <Routes>
     <Route path={'/'} element={<Layout />}>

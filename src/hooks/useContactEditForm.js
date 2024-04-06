@@ -1,10 +1,10 @@
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
 import {
   contactsUpdateContactByIdThunk,
 } from '../redux/contacts/operations.js';
-import toast from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).max(50).required(),
@@ -27,7 +27,7 @@ function useContactEditForm({
   return useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async (values, formikHelpers) => {
+    onSubmit: async (values) => {
       try {
         await dispatch(contactsUpdateContactByIdThunk({ id, ...values })).unwrap();
 

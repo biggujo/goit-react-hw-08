@@ -1,4 +1,3 @@
-import React from 'react';
 import { TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/filter/slice.js';

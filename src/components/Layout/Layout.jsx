@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react';
-import { Container, CssBaseline, Typography } from '@mui/material';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import AppBar from '../AppBar/index.js';
-import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
+import { Container, CssBaseline, Typography } from '@mui/material';
+import AppBar from '../AppBar/index.js';
 import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 
 function Layout() {

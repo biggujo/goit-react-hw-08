@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -27,7 +26,7 @@ function HomePage() {
                                 to={'/register'}>create</Link> a
       new one.
     </Typography> : <Typography variant={'h5'} component={'p'}>
-      Go to "<Link as={RouterLink} to={'/contacts'}>My Contacts</Link>" to start
+      Go to <Link as={RouterLink} to={'/contacts'}>My Contacts</Link> to start
       using the application.
     </Typography>}
   </Stack>);

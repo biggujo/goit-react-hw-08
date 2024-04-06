@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Modal } from '@mui/material';
 
 function ContactModal({

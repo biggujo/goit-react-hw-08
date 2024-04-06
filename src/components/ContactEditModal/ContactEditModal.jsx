@@ -1,6 +1,5 @@
-import React from 'react';
+import { Stack, Typography } from '@mui/material';
 import { ContactData, ContactEditForm, ContactModal } from '../index.js';
-import { Button, Stack, Typography } from '@mui/material';
 
 function ContactEditModal({
   open,
@@ -9,14 +8,6 @@ function ContactEditModal({
   name,
   number,
 }) {
-  const handleSubmitClick = () => {
-    onClose();
-  };
-
-  const handleCancelClick = () => {
-    onClose();
-  };
-
   return (<ContactModal open={open}
                         onClose={onClose}>
     <Stack gap={2}>
@@ -33,11 +24,7 @@ function ContactEditModal({
       <ContactEditForm id={id}
                        onClose={onClose}
                        initialName={name}
-                       initialNumber={number}
-                       additionalControls={<Button onClick={handleCancelClick}
-                                                   variant={'outlined'}>
-                         Cancel
-                       </Button>} />
+                       initialNumber={number} />
     </Stack>
   </ContactModal>);
 }
