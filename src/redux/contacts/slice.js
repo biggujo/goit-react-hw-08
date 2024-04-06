@@ -5,6 +5,7 @@ import {
   contactsFetchAllThunk,
   contactsUpdateContactByIdThunk,
 } from './operations.js';
+import { authLogOutThunk } from '../auth/operations.js';
 
 const initialState = {
   items: [],
@@ -58,6 +59,9 @@ const slice = createSlice({
         } : item),
       };
     })
+    .addCase(authLogOutThunk.fulfilled, () => ({
+      ...initialState,
+    }))
     .addMatcher(isAnyOf(
       contactsFetchAllThunk.rejected,
       contactsAddContactThunk.rejected,
