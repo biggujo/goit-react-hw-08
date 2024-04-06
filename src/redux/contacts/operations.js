@@ -33,11 +33,14 @@ export const contactsAddContactThunk = createAsyncThunk('contacts/addContact',
 
 // DELETE /contacts/{contactId}
 // Delete contact
-// export const contactsDeleteContactByIdThunk = createAsyncThunk('contacts/deleteById',
-//   async (contactId, { rejectWithValue }) => {
-//     try {
-//       const response = axios.delete(`/contacts/${contactId}`);
-//
-//     }
-//   },
-// );
+export const contactsDeleteContactByIdThunk = createAsyncThunk('contacts/deleteById',
+  async (contactId, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`/contacts/${contactId}`);
+
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);

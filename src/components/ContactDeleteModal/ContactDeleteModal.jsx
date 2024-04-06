@@ -1,6 +1,11 @@
 import React from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 import { ContactData, ContactModal } from '../index.js';
+import { useDispatch } from 'react-redux';
+import {
+  contactsDeleteContactByIdThunk,
+} from '../../redux/contacts/operations.js';
+import toast from 'react-hot-toast';
 
 function ContactDeleteModal({
   open,
@@ -9,11 +14,25 @@ function ContactDeleteModal({
   name,
   number,
 }) {
-  const handleSubmitClick = () => {
-    onClose();
+  const dispatch = useDispatch();
+
+  const handleSubmitClick = async () => {
+    try {
+      const result = await dispatch(contactsDeleteContactByIdThunk(id));
+
+      if (result.error) {
+        throw new Error(result.payload);
+      }
+
+      toast.success('Successful delete');
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      onClose();
+    }
   };
 
-  const handleCancelClick = async () => {
+  const handleCancelClick = () => {
     onClose();
   };
 

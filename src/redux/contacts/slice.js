@@ -1,6 +1,8 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  contactsAddContactThunk, contactsFetchAllThunk,
+  contactsAddContactThunk,
+  contactsDeleteContactByIdThunk,
+  contactsFetchAllThunk,
 } from './operations.js';
 
 const initialState = {
@@ -38,19 +40,24 @@ const slice = createSlice({
         ],
       };
     })
-    .addMatcher(
-      isAnyOf(contactsFetchAllThunk.rejected,
-        contactsAddContactThunk.rejected,
-      ),
-      (state, action) => {
-        return {
-          ...state,
-          items: [],
-          isLoading: false,
-          error: action.payload,
-        };
-      },
-    );
+    .addCase(contactsDeleteContactByIdThunk.fulfilled, (state, action) => {
+      return {
+        ...state,
+        items: state.items.filter(({ id }) => id !== action.payload.id),
+      };
+    })
+    .addMatcher(isAnyOf(
+      contactsFetchAllThunk.rejected,
+      contactsAddContactThunk.rejected,
+      contactsDeleteContactByIdThunk.rejected,
+    ), (state, action) => {
+      return {
+        ...state,
+        items: [],
+        isLoading: false,
+        error: action.payload,
+      };
+    });
   },
 });
 
