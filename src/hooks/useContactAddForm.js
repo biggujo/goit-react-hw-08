@@ -6,8 +6,8 @@ import { contactsAddContactThunk } from '../redux/contacts/operations.js';
 import toast from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  number: Yup.string().min(2).required(),
+  name: Yup.string().min(3).max(50).required(),
+  number: Yup.string().min(3).max(50).required(),
 });
 
 function useContactAddForm() {

@@ -16,6 +16,9 @@ function FormTextField({
     onBlur={formik.handleBlur}
     error={formik.touched[name] && Boolean(formik.errors[name])}
     helperText={formik.touched[name] && formik.errors[name]}
+    sx={{
+      width: '330px',
+    }}
     {...props}
   />;
 }

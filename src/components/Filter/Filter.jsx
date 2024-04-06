@@ -12,7 +12,10 @@ function Filter() {
 
   return (<TextField value={value}
                      onChange={handleChange}
-                     placeholder={'John Smith'} />);
+                     placeholder={'John Smith'}
+                     sx={{
+                       width: '330px',
+                     }} />);
 }
 
 export default Filter;

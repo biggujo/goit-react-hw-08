@@ -27,7 +27,7 @@ function ContactAddForm() {
         loading={formik.isSubmitting}
         variant={'contained'}
         type={'submit'}>
-        Add
+        Add contact
       </LoadingButton>
     </Stack>
   </FormikProvider>;

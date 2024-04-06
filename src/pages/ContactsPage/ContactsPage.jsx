@@ -3,8 +3,12 @@ import { Box, Stack, Typography } from '@mui/material';
 import { ContactAddForm } from '../../components';
 import Filter from '../../components/Filter/index.js';
 import FilteredContactList from '../../components/FilteredContactList/index.js';
+import { useSelector } from 'react-redux';
+import { selectContactsItems } from '../../redux/contacts/selectors.js';
 
 function ContactsPage() {
+  const items = useSelector(selectContactsItems);
+
   return (<Stack gap={2}>
     <Typography variant={'h2'}>
       Contacts
@@ -17,15 +21,18 @@ function ContactsPage() {
     </Typography>
     <ContactAddForm />
 
-    <Typography variant={'h3'} sx={{
-      paddingTop: '1rem',
-    }}>
-      List of contacts
-    </Typography>
+    <Box>
+      <Typography variant={'h3'} sx={{
+        paddingTop: '1rem',
+      }}>
+        List of contacts
+      </Typography>
+      <Typography>Total amount: {items.length}</Typography>
+    </Box>
 
     <Box>
       <Typography variant={'h4'}>
-        Filter
+        Find contacts by name
       </Typography>
       <Filter />
     </Box>
