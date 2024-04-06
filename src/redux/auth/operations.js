@@ -18,7 +18,7 @@ export const authRegisterThunk = createAsyncThunk('auth/register',
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -34,7 +34,7 @@ export const authLogInThunk = createAsyncThunk('auth/logIn',
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -48,7 +48,7 @@ export const authLogOutThunk = createAsyncThunk('auth/logOut',
 
       clearAuthHeader();
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -71,7 +71,7 @@ export const authRefreshUserThunk = createAsyncThunk('auth/refreshUser',
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
   {

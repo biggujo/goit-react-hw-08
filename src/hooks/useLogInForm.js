@@ -22,11 +22,7 @@ function useLogInForm() {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        const result = await dispatch(authLogInThunk(values));
-
-        if (result.error) {
-          throw new Error(result.payload);
-        }
+        await dispatch(authLogInThunk(values)).unwrap();
 
         toast.success('Successful log in');
       } catch (error) {

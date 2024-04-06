@@ -24,11 +24,7 @@ function useRegistrationForm() {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        const result = await dispatch(authRegisterThunk(values));
-
-        if (result.error) {
-          throw new Error(result.payload);
-        }
+        await dispatch(authRegisterThunk(values)).unwrap();
 
         toast.success('Successful registration');
       } catch (error) {

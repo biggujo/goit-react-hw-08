@@ -23,11 +23,7 @@ function useContactAddForm() {
     validationSchema,
     onSubmit: async (values, formikHelpers) => {
       try {
-        const result = await dispatch(contactsAddContactThunk(values));
-
-        if (result.error) {
-          throw new Error(result.payload);
-        }
+        await dispatch(contactsAddContactThunk(values)).unwrap();
 
         toast.success('The contact has been added');
         formikHelpers.resetForm();

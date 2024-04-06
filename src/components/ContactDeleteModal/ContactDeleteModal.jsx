@@ -3,7 +3,7 @@ import { Button, Stack, Typography } from '@mui/material';
 import { ContactData, ContactModal } from '../index.js';
 import { useDispatch } from 'react-redux';
 import {
-  contactsDeleteContactByIdThunk,
+  contactsAddContactThunk, contactsDeleteContactByIdThunk,
 } from '../../redux/contacts/operations.js';
 import toast from 'react-hot-toast';
 import { LoadingButton } from '@mui/lab';
@@ -21,11 +21,7 @@ function ContactDeleteModal({
   const handleSubmitClick = async () => {
     setIsSubmitting(true);
     try {
-      const result = await dispatch(contactsDeleteContactByIdThunk(id));
-
-      if (result.error) {
-        throw new Error(result.payload);
-      }
+      await dispatch(contactsDeleteContactByIdThunk(id)).unwrap();
 
       toast.success('Successful delete');
       onClose();

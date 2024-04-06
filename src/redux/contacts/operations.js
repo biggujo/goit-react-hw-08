@@ -10,7 +10,7 @@ export const contactsFetchAllThunk = createAsyncThunk('contacts/fetchAll',
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -22,11 +22,12 @@ export const contactsAddContactThunk = createAsyncThunk('contacts/addContact',
     try {
       const response = await axios.post('/contacts', data);
 
-      console.log(response.data);
+      console.log(response);
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      console.log(error);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -40,7 +41,7 @@ export const contactsDeleteContactByIdThunk = createAsyncThunk('contacts/deleteB
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -59,11 +60,9 @@ export const contactsUpdateContactByIdThunk = createAsyncThunk('contacts/updateB
         number,
       });
 
-      console.log(response);
-
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data);
     }
   },
 );

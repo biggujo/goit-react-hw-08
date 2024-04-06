@@ -7,8 +7,8 @@ import {
 import toast from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  number: Yup.string().min(2).required(),
+  name: Yup.string().min(3).max(50).required(),
+  number: Yup.string().min(3).max(50).required(),
 });
 
 function useContactEditForm({
@@ -29,11 +29,7 @@ function useContactEditForm({
     validationSchema,
     onSubmit: async (values, formikHelpers) => {
       try {
-        const result = await dispatch(contactsUpdateContactByIdThunk({ id, ...values }));
-
-        if (result.error) {
-          throw new Error(result.payload);
-        }
+        await dispatch(contactsUpdateContactByIdThunk({ id, ...values })).unwrap();
 
         toast.success('Successful update');
         onClose();

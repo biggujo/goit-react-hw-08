@@ -8,11 +8,7 @@ function useLogOutMutation() {
 
   return async () => {
     try {
-      const result = await dispatch(authLogOutThunk());
-
-      if (result.error) {
-        throw new Error(result.payload);
-      }
+      await dispatch(authLogOutThunk()).unwrap();
 
       toast.success('Successful log out');
     } catch (error) {
