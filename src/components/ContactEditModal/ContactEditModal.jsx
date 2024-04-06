@@ -1,8 +1,8 @@
 import React from 'react';
+import { ContactData, ContactForm, ContactModal } from '../index.js';
 import { Button, Stack, Typography } from '@mui/material';
-import { ContactData, ContactModal } from '../index.js';
 
-function ContactDeleteModal({
+function ContactEditModal({
   open,
   onClose,
   id,
@@ -21,25 +21,22 @@ function ContactDeleteModal({
                         onClose={onClose}>
     <Stack gap={2}>
       <Typography variant={'h5'} component={'h2'}>
-        Are you sure?
+        Contact edit:
       </Typography>
       <Typography variant={'h6'} component={'h3'}>
-        A contact to delete:
+        Original data:
       </Typography>
       <ContactData name={name} phone={phone} />
-      <Stack direction={'row'} gap={2}>
-        <Button onClick={handleSubmitClick}
-                variant={'contained'}
-                color={'error'}>
-          Yes
-        </Button>
-        <Button onClick={handleCancelClick}
-                variant={'outlined'}>
-          No
-        </Button>
-      </Stack>
+      <Typography variant={'h6'} component={'h3'}>
+        New data:
+      </Typography>
+      <ContactForm id={id} initialName={name} initialPhone={phone}
+                   additionalControls={<Button onClick={handleCancelClick}
+                                               variant={'outlined'}>
+                     Cancel
+                   </Button>} />
     </Stack>
   </ContactModal>);
 }
 
-export default ContactDeleteModal;
+export default ContactEditModal;

@@ -13,3 +13,6 @@ export { default as ContactList } from './ContactList';
 export { default as ContactItem } from './ContactItem';
 export { default as ContactModal } from './ContactModal';
 export { default as ContactDeleteModal } from './ContactDeleteModal';
+export { default as ContactEditModal } from './ContactEditModal';
+export { default as ContactData } from './ContactData';
+export { default as ContactForm } from './ContactForm';
