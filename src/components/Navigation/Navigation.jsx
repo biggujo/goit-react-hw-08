@@ -1,8 +1,12 @@
 import React from 'react';
 import { Button, Stack } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
-function Navigation({ links }) {
+function Navigation({
+  links,
+}) {
+  const { pathname } = useLocation();
+
   return (<nav>
     <Stack
       direction={'row'}
@@ -17,11 +21,9 @@ function Navigation({ links }) {
         href,
       }) => <Button
         component={RouterLink}
-        sx={{
-          color: 'white',
-        }}
         to={href}
         key={href}
+        color={pathname === href ? 'secondary' : 'primary'}
       >
         {title}
       </Button>)}

@@ -24,7 +24,9 @@ function AppBar() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
 
-  return (<AppBarMui position={'static'}>
+  return (<AppBarMui position={'static'}
+                     elevation={1}
+                     sx={{ bgcolor: '#ffffff' }}>
     <Toolbar>
       <Container maxWidth={'md'}>
         <BarStack justifyContent={'space-between'}>

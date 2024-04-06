@@ -4,9 +4,9 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import { Link as RouterLink } from 'react-router-dom';
 
 function BarLogo() {
-  return <Button sx={{ color: 'white' }}
-                 component={RouterLink}
-                 to={'/'}
+  return <Button
+    component={RouterLink}
+    to={'/'}
   >
     <Stack direction={'row'}
            gap={1.5}

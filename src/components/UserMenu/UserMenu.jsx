@@ -16,9 +16,6 @@ function UserMenu() {
     <Typography>Hello, {user.name}!</Typography>
     <Button
       onClick={handleLogOutClick}
-      sx={{
-        color: 'white',
-      }}
     >
       Log out
     </Button>
