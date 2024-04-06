@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ProtectedRoute } from '../index.js';
+import { Layout, PrivateRoute, RestrictedRoute } from '../index.js';
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authRefreshUserThunk } from '../../redux/auth/operations.js';
@@ -19,13 +19,15 @@ function App() {
   return <Routes>
     <Route path={'/'} element={<Layout />}>
       <Route index element={<HomePage />} />
-      <Route path={'contacts'} element={<ContactsPage />} />
-      <Route path={'register'} element={<ProtectedRoute redirectTo={'/contacts'}
-                                                        component={
-                                                          <RegistrationPage />} />} />
-      <Route path={'login'} element={<ProtectedRoute redirectTo={'/contacts'}
-                                                     component={
-                                                       <LogInPage />} />} />
+      <Route path={'contacts'} element={<PrivateRoute redirectTo={'/login'}
+                                                      component={
+                                                        <ContactsPage />} />} />
+      <Route path={'register'}
+             element={<RestrictedRoute redirectTo={'/contacts'}
+                                       component={<RegistrationPage />} />} />
+      <Route path={'login'} element={<RestrictedRoute redirectTo={'/contacts'}
+                                                      component={
+                                                        <LogInPage />} />} />
       <Route path="*" element={<Navigate to={'/'} />} />
     </Route>
   </Routes>;
