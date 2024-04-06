@@ -17,11 +17,13 @@ function LogInForm() {
       <FormTextField formik={formik}
                      name={'email'}
                      label={'Email *'}
+                     disabled={formik.isSubmitting}
       />
       <FormTextField formik={formik}
                      name={'password'}
                      label={'Password *'}
                      type={'password'}
+                     disabled={formik.isSubmitting}
       />
       <LoadingButton
         loading={formik.isSubmitting}

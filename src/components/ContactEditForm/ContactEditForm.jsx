@@ -27,10 +27,12 @@ function ContactEditForm({
       <FormTextField formik={formik}
                      name={'name'}
                      label={'Name *'}
+                     disabled={formik.isSubmitting}
       />
       <FormTextField formik={formik}
                      name={'number'}
                      label={'Phone *'}
+                     disabled={formik.isSubmitting}
       />
       <Stack direction={'row'} gap={2}>
         <LoadingButton

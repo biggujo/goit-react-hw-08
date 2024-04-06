@@ -16,10 +16,12 @@ function ContactAddForm() {
       <FormTextField formik={formik}
                      name={'name'}
                      label={'Name *'}
+                     disabled={formik.isSubmitting}
       />
       <FormTextField formik={formik}
                      name={'number'}
                      label={'Phone *'}
+                     disabled={formik.isSubmitting}
       />
       <LoadingButton
         loading={formik.isSubmitting}
