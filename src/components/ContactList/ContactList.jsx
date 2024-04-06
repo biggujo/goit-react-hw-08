@@ -4,17 +4,22 @@ import { Stack, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
 import {
-  selectContactsIsLoading, selectContactsItems,
+  selectContactsError, selectContactsIsLoading, selectContactsItems,
 } from '../../redux/contacts/selectors.js';
 
 function ContactList() {
   const dispatch = useDispatch();
   const items = useSelector(selectContactsItems);
   const isLoading = useSelector(selectContactsIsLoading);
+  const error = useSelector(selectContactsError);
 
   useEffect(() => {
     dispatch(contactsFetchAllThunk());
   }, []);
+
+  if (error) {
+    return <Typography>Error: {error}</Typography>;
+  }
 
   if (isLoading) {
     return <Typography>Loading...</Typography>;

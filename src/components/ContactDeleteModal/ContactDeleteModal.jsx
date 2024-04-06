@@ -13,7 +13,7 @@ function ContactDeleteModal({
     onClose();
   };
 
-  const handleCancelClick = () => {
+  const handleCancelClick = async () => {
     onClose();
   };
 

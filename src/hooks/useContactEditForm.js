@@ -9,11 +9,11 @@ const validationSchema = Yup.object().shape({
 function useContactEditForm({
   id,
   initialName,
-  initialPhone,
+  initialNumber,
 }) {
   const initialValues = {
     name: initialName,
-    number: initialPhone,
+    number: initialNumber,
   };
 
   return useFormik({
