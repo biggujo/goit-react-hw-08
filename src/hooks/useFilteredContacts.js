@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import Fuse from 'fuse.js';
 import { selectContactsItems } from '../redux/contacts/selectors.js';
-import { selectFilterValue } from '../redux/filter/selectors.js';
+import { selectFilterValue } from '../redux/filters/selectors.js';
 
 const options = {
   keys: [
