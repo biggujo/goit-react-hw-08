@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Typography } from '@mui/material';
 import { ContactList } from '../index.js';
 import {
-  selectContactsError, selectContactsIsLoading,
+  selectContactsError, selectContactsIsLoading, selectFilteredContacts,
 } from '../../redux/contacts/selectors.js';
 import { contactsFetchAllThunk } from '../../redux/contacts/operations.js';
-import { useFilteredContacts } from '../../hooks/index.js';
 
 function FilteredContactList() {
   const dispatch = useDispatch();
-  const filteredItems = useFilteredContacts();
+  const filteredItems = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectContactsIsLoading);
   const error = useSelector(selectContactsError);
 
