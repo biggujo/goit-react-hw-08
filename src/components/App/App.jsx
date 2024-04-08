@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 import { Layout, PrivateRoute, RestrictedRoute } from '../index.js';
 import { authRefreshUserThunk } from '../../redux/auth/operations.js';
 
-const HomePage = lazy(() => import('../../pages/HomePage'));
-const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
-const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
-const LogInPage = lazy(() => import('../../pages/LogInPage'));
+const Home = lazy(() => import('../../pages').then(module => ({ default: module.Home })));
+const Contacts = lazy(() => import('../../pages').then(module => ({ default: module.Contacts })));
+const Registration = lazy(() => import('../../pages').then(module => ({ default: module.Registration })));
+const Login = lazy(() => import('../../pages').then(module => ({ default: module.Login })));
 
 function App() {
   const dispatch = useDispatch();
@@ -18,16 +18,16 @@ function App() {
 
   return <Routes>
     <Route path={'/'} element={<Layout />}>
-      <Route index element={<HomePage />} />
+      <Route index element={<Home />} />
       <Route path={'contacts'} element={<PrivateRoute redirectTo={'/login'}
                                                       component={
-                                                        <ContactsPage />} />} />
+                                                        <Contacts />} />} />
       <Route path={'register'}
              element={<RestrictedRoute redirectTo={'/contacts'}
-                                       component={<RegistrationPage />} />} />
+                                       component={<Registration />} />} />
       <Route path={'login'} element={<RestrictedRoute redirectTo={'/contacts'}
                                                       component={
-                                                        <LogInPage />} />} />
+                                                        <Login />} />} />
       <Route path="*" element={<Navigate to={'/'} />} />
     </Route>
   </Routes>;

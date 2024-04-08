@@ -1,13 +1,13 @@
 import { Stack, Typography } from '@mui/material';
-import { Login } from '../../components';
+import { LoginForm } from '../components';
 
-function LogInPage() {
+function Login() {
   return (<Stack gap={2}>
     <Typography variant={'h2'}>
       Log in form
     </Typography>
-    <Login />
+    <LoginForm />
   </Stack>);
 }
 
-export default LogInPage;
+export default Login;

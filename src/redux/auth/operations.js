@@ -24,7 +24,7 @@ export const authRegisterThunk = createAsyncThunk('auth/register',
 );
 
 // POST /users/login
-// Login user
+// LoginForm user
 export const authLogInThunk = createAsyncThunk('auth/logIn',
   async (credentials, { rejectWithValue }) => {
     try {

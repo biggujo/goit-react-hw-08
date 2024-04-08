@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Box, Stack, Typography } from '@mui/material';
-import { ContactAddForm } from '../../components';
-import Filter from '../../components/Filter/index.js';
-import FilteredContactList from '../../components/FilteredContactList/index.js';
-import { selectContactsItems } from '../../redux/contacts/selectors.js';
+import { ContactAddForm } from '../components';
+import Filter from '../components/Filter/index.js';
+import FilteredContactList from '../components/FilteredContactList/index.js';
+import { selectContactsItems } from '../redux/contacts/selectors.js';
 
-function ContactsPage() {
+function Contacts() {
   const items = useSelector(selectContactsItems);
 
   return (<Stack gap={2}>
@@ -45,4 +45,4 @@ function ContactsPage() {
   </Stack>);
 }
 
-export default ContactsPage;
+export default Contacts;

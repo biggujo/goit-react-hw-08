@@ -1,9 +1,9 @@
 import { Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
+import { selectIsLoggedIn } from '../redux/auth/selectors.js';
 
-function HomePage() {
+function Home() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (<Stack gap={2}>
@@ -32,4 +32,4 @@ function HomePage() {
   </Stack>);
 }
 
-export default HomePage;
+export default Home;

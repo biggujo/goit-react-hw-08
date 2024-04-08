@@ -1,4 +1,4 @@
-export { default as HomePage } from './HomePage';
-export { default as ContactsPage } from './ContactsPage';
-export { default as RegisterPage } from './RegistrationPage';
-export { default as LogInPage } from './LogInPage';
+export { default as Home } from './Home.jsx';
+export { default as Contacts } from './Contacts.jsx';
+export { default as Registration } from './Registration.jsx';
+export { default as Login } from './Login.jsx';

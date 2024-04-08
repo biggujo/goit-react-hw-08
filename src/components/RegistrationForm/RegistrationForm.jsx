@@ -5,7 +5,7 @@ import { LoadingButton } from '@mui/lab';
 import { FormTextField } from '../index.js';
 import { useRegistrationForm } from '../../hooks';
 
-function Registration() {
+function RegistrationForm() {
   const formik = useRegistrationForm();
 
   return <>
@@ -48,4 +48,4 @@ function Registration() {
   </>;
 }
 
-export default Registration;
+export default RegistrationForm;

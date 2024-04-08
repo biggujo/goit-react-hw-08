@@ -1,13 +1,13 @@
 import { Stack, Typography } from '@mui/material';
-import { Registration } from '../../components/';
+import { RegistrationForm } from '../components';
 
-function RegistrationPage() {
+function Registration() {
   return (<Stack gap={2}>
     <Typography variant={'h2'}>
       Registration form
     </Typography>
-    <Registration />
+    <RegistrationForm />
   </Stack>);
 }
 
-export default RegistrationPage;
+export default Registration;
