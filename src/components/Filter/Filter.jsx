@@ -1,11 +1,11 @@
 import { TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/filters/slice.js';
-import { selectFilterValue } from '../../redux/filters/selectors.js';
+import { selectNameFilter } from '../../redux/filters/selectors.js';
 
 function Filter() {
   const dispatch = useDispatch();
-  const value = useSelector(selectFilterValue);
+  const value = useSelector(selectNameFilter);
 
   const handleChange = (event) => dispatch(setFilter(event.target.value));
 
