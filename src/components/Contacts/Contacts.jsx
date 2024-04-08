@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import ContactItem from '../ContactItem/index.js';
 
-function ContactList({ items }) {
+function Contacts({ items }) {
   return <Stack gap={2}
                 as={'ul'}
                 paddingLeft={0}
@@ -14,4 +14,4 @@ function ContactList({ items }) {
   </Stack>;
 }
 
-export default ContactList;
+export default Contacts;

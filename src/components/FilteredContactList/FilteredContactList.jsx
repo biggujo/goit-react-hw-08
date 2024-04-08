@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Typography } from '@mui/material';
-import { ContactList } from '../index.js';
+import { Contacts } from '../index.js';
 import {
   selectContactsError, selectContactsIsLoading, selectFilteredContacts,
 } from '../../redux/contacts/selectors.js';
@@ -29,7 +29,7 @@ function FilteredContactList() {
     return <Typography>No items available.</Typography>;
   }
 
-  return (<ContactList items={filteredItems} />);
+  return (<Contacts items={filteredItems} />);
 }
 
 export default FilteredContactList;

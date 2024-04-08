@@ -1,8 +1,8 @@
 import { links } from '../../utils';
 import { Navigation } from '../index.js';
 
-function AuthNavigation() {
+function AuthNav() {
   return <Navigation links={links.authLinks} />;
 }
 
-export default AuthNavigation;
+export default AuthNav;

@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import { BarLogo, Navigation, UserMenu } from '../index.js';
 import { links } from '../../utils';
-import AuthNavigation from '../AuthNavigation/AuthNavigation.jsx';
+import AuthNav from '../AuthNav/AuthNav.jsx';
 import {
   selectIsLoggedIn, selectIsRefreshing,
 } from '../../redux/auth/selectors.js';
@@ -34,7 +34,7 @@ function AppBar() {
             <Navigation links={links.navigationLinks} />
           </BarStack>
           {isRefreshing ? <Typography>Refreshing...</Typography> : (isLoggedIn ?
-            <UserMenu /> : <AuthNavigation />)}
+            <UserMenu /> : <AuthNav />)}
         </BarStack>
       </Container>
     </Toolbar>

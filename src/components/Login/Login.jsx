@@ -5,7 +5,7 @@ import { LoadingButton } from '@mui/lab';
 import { FormTextField } from '../index.js';
 import useLogInForm from '../../hooks/useLogInForm.js';
 
-function LogInForm() {
+function Login() {
   const formik = useLogInForm();
 
   return (<FormikProvider value={formik}>
@@ -41,4 +41,4 @@ function LogInForm() {
   </FormikProvider>);
 }
 
-export default LogInForm;
+export default Login;
